@@ -2,6 +2,7 @@ import LoadingButton from '@src/modules/common/components/buttons/LoadingButton'
 import FormGroupCustom from '@src/modules/common/components/formGroupCustom/FormGroupCustom'
 import Shimmer from '@src/modules/common/components/shimmers/Shimmer'
 import { useCreateOrUpdateDPRMutation } from '@src/modules/dpr/redux/RTKQuery/DPRRTK'
+import { useLoadHeaderMutation } from '@src/modules/dpr/redux/RTKQuery/HeaderRTK'
 import { useLoadItemDescMutation } from '@src/modules/dpr/redux/RTKQuery/ItemDescRTK'
 import Emitter from '@src/utility/Emitter'
 import Hide from '@src/utility/Hide'
@@ -62,6 +63,8 @@ const Map = (props: theProps) => {
   const [state, setState] = useReducer(reducers, initState)
   const [createDPRMap, result] = useCreateOrUpdateDPRMutation()
   const [loadeDesc, descRes] = useLoadItemDescMutation()
+  const [loadItem, { data, originalArgs, isLoading, isSuccess }] = useLoadHeaderMutation()
+
   useEffect(() => {
     if (result.isSuccess) {
       Emitter.emit('reloadMap', true)
@@ -70,7 +73,9 @@ const Map = (props: theProps) => {
 
   useEffect(() => {
     loadeDesc({})
+    loadItem({ per_page_record: 50000 })
   }, [])
+
   useEffect(() => {
     if (descRes?.isSuccess) {
       const data = descRes?.data?.data as unknown as any[]
@@ -394,7 +399,7 @@ const Map = (props: theProps) => {
                               //   isDisabled={isDisabledCellDesc(f?.name)}
                               name={`dpr_map.${i}.name`}
                               label={FM('cell-desc')}
-                              type={'text'}
+                              type={'select'}
                               onRegexValidation={{
                                 form: form,
                                 fieldName: `dpr_map.${i}.name`
@@ -402,7 +407,17 @@ const Map = (props: theProps) => {
                               className='mb-2'
                               control={control}
                               rules={{ required: true }}
+                              onlyValueSelect
+                              selectOptions={
+                                i == 0
+                                  ? [{ label: 'Data Date', value: 'Data Date' }]
+                                  : data?.data?.data?.map((a) => ({
+                                      label: a.name,
+                                      value: a.name
+                                    })) || []
+                              }
                             />
+
                             <FormGroupCustom
                               key={`${f?.name}`}
                               //   isDisabled={isDisabledCellDesc(f?.name)}

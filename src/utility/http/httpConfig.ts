@@ -5,7 +5,7 @@ const enableSsl = import.meta.env.VITE_SSL ?? false
 const encryptionKey = import.meta.env.VITE_ENCRYPTION_KEY as string
 const ivKey = import.meta.env.VITE_IV as string
 const domain =
-    enableSsl === 'true' || enableSsl === true ? `https://${baseUrl}` : `http://${baseUrl}`
+    enableSsl === 'true' || enableSsl === true ? `https://${baseUrl}` : `https://${baseUrl}`
 export default {
     // ** This will be prefixed in authorization header with token
     // ? e.g. Authorization: Bearer <token>

@@ -14,7 +14,7 @@ import { Permissions } from '@src/utility/Permissions'
 import Show from '@src/utility/Show'
 import { stateReducer } from '@src/utility/stateReducer'
 import { DPR } from '@src/utility/types/typeDPR'
-import { emitAlertStatus, FM, formatDate, isValid, log, truncateText } from '@src/utility/Utils'
+import { emitAlertStatus, FM, formatDate, isValid, truncateText } from '@src/utility/Utils'
 import { useContext, useEffect, useReducer, useState } from 'react'
 import { TableColumn } from 'react-data-table-component'
 import { Edit, Mail, MoreVertical, Plus, RefreshCcw, Trash2 } from 'react-feather'
@@ -74,8 +74,7 @@ function ReportsEmail() {
   const [loadItem, { data, originalArgs, isLoading, isSuccess }] = useLoadReportEmailMutation()
   const [deleteReportEmail, resultDelete] = useDeleteReportEmailByIdMutation()
   const [createReportEmail, resultCreate] = useCreateOrUpdateReportEmailMutation()
-  const [showModal, setShowModal] = useState(false)
-  const [modalOpen, setModalOpen] = useState(false)
+
   const [updateEmail, resultUpdate] = useUpdateEmailMutation()
   const [emailTrigger, resultEmailTrigger] = useEmailTriggerMutation()
 
@@ -345,22 +344,21 @@ function ReportsEmail() {
     }
 
     try {
-      setLoading(true) // 👈 start loader
+      setLoading(true) // 
 
-      const response = await updateEmail(subData) // 👈 wait for API
+      const response = await updateEmail(subData) // 
 
-      // agar success aaya
-      //   console.log('✅ API Success:', response)
+      
     } catch (error) {
-      //   console.error('❌ API Error:', error)
+      
     } finally {
-      setLoading(false) // 👈 stop loader always
+      setLoading(false) // 
     }
   }
 
   useEffect(() => {
     form.setValue('execution_time', appData?.data?.execution_time)
-    if (appData?.data?.automation_email_trigger === 1) {
+    if (appData?.data?.automation_email_trigger === 1 ||appData?.data?.automation_email_trigger === '1' ) {
       setTriggerValue(true)
     }
   }, [appData, form.setValue])
@@ -388,7 +386,7 @@ function ReportsEmail() {
         </LoadingButton> */}
         <ConfirmAlert
           title='Email Trigger Confirmation'
-          text='Are You Sure You Want to sent Automation OverAll Report '
+          text='Are you sure you want to sent automation overall report'
           eventId='enbl-1234-12'
           //   confirmButtonText='yes-send'
           enableNo={false}

@@ -67,7 +67,15 @@ export const ProjectManagement = createApi({
         method: 'post',
         path: ApiEndpoints.action_project
       })
-    })
+    }),
+       loadNotification: builder.mutation<ResponseTypeList, RequestType>({
+      query: (a) => ({
+        jsonData: a?.jsonData,
+        params: { page: a?.page, per_page_record: a?.per_page_record },
+        method: 'post',
+        path: ApiEndpoints.notification_list
+      })
+    }),
   })
 })
 export const {
@@ -75,5 +83,6 @@ export const {
   useCreateOrUpdateProjectMutation,
   useDeleteProjectByIdMutation,
   useLoadProjectDetailsByIdMutation,
-  useLoadProjectActionMutation
+  useLoadProjectActionMutation,
+  useLoadNotificationMutation
 } = ProjectManagement

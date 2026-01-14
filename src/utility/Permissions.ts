@@ -313,5 +313,18 @@ export const Permissions = Object.freeze({
     action: 'item-desc-delete',
     resource: 'item-desc',
     belongs_to: 3
+  },
+    //email-triggers trigger report
+   emailTriggerBrowse: {
+    action: 'email-triggers-browse',
+    resource: 'email-triggers',
+    belongs_to: 3
+  },
+
+  //summary-report
+  SummaryReportBrowse: {
+    action: 'summary-report-browse',
+    resource: 'summary-report',
+    belongs_to: 3
   }
 })

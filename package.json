@@ -174,5 +174,8 @@
         ">0.2%",
         "not dead",
         "not op_mini all"
-    ]
+    ],
+    "volta": {
+        "node": "16.20.2"
+    }
 }

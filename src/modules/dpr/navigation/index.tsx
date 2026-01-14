@@ -90,6 +90,13 @@ export default [
         icon: <List size={20} />,
         navLink: getPath('dpr.item'),
         ...Permissions.itemDescriptionBrowse
+      },
+      {
+        id: 'headers',
+        title: 'Headers',
+        icon: <List size={20} />,
+        navLink: getPath('dpr.headers'),
+        ...Permissions.itemDescriptionBrowse
       }
     ]
   },
@@ -111,7 +118,7 @@ export default [
         title: 'Summary Report',
         icon: <Circle size={12} />,
         navLink: getPath('summary.report'),
-        ...Permissions.reportBrowse
+        ...Permissions.SummaryReportBrowse
       },
       //   {
       //     id: 'report',
@@ -125,7 +132,7 @@ export default [
         title: 'Email Triggers',
         icon: <Circle size={12} />,
         navLink: getPath('dpr.automation.report'),
-        ...Permissions.reportBrowse
+        ...Permissions.emailTriggerBrowse
       }
     ]
   },

@@ -23,7 +23,8 @@ export type DPR = {
   dwg_avail?: any
   avatar?: any
   app_logo?: any
-
+message?:any
+read_status?:any
   app_name?: any
   address?: any
   token?: any

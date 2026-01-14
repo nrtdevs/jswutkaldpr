@@ -18,6 +18,7 @@ import { WorkPackageManagement } from './RTKQuery/WorkPackageRTK'
 import { AppSettings } from './RTKQuery/AppSettingRTK'
 import { ItemDescManagement } from './RTKQuery/ItemDescRTK'
 import { ReportEmail } from './RTKQuery/ReportEmailRTK'
+import { HeaderManagement } from './RTKQuery/HeaderRTK'
 
 const DprReducers = {
     // RTK
@@ -38,7 +39,8 @@ const DprReducers = {
     [ProfileManagement.reducerPath]: ProfileManagement.reducer,
     [NotificationManagement.reducerPath]: NotificationManagement.reducer,
     [AppSettings.reducerPath]: AppSettings.reducer,
-    [ItemDescManagement.reducerPath]: ItemDescManagement.reducer
+    [ItemDescManagement.reducerPath]: ItemDescManagement.reducer,
+    [HeaderManagement.reducerPath]: HeaderManagement.reducer
 }
 const DprMiddleware = [
     DPRManagement.middleware,
@@ -58,7 +60,8 @@ const DprMiddleware = [
     ProfileManagement.middleware,
     NotificationManagement.middleware,
     AppSettings.middleware,
-    ItemDescManagement.middleware
+    ItemDescManagement.middleware,
+    HeaderManagement.middleware
 ]
 
 export { DprReducers, DprMiddleware }

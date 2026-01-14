@@ -306,5 +306,10 @@
     "Perticular": "Perticular",
     "execution-time": "Execution Time",
     "email-trigger": "Trigger Report",
-    "enable-execution-time": "Automation On / Off"
+    "enable-execution-time": "Automation On / Off",
+     "notifications":"Notifications",
+   
+    "read-status":"Read Status",
+    "read":"Read",
+    "unread":"Unread"
 }

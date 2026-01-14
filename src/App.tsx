@@ -16,7 +16,7 @@ const App = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     // timeout in minutes
-    let timer = user?.roles?.name === 'Admin' ? 15 : 30
+    let timer = user?.roles?.name === 'Admin' ? 30 : 45
     const { isLeader } = useIdleTimer({
         crossTab: true,
         leaderElection: true,

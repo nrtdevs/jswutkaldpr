@@ -67,6 +67,7 @@ export interface FormGroupCustomProps {
     feedback?: any
     step?: any
     accept?: any
+    onlyValueSelect?: boolean
     loadOptions?: (e: DropdownProps) => Promise<void | AxiosResponse<any, any>>
     isOptionDisabled?: (option: Option, selectValue: Options<Option>) => boolean
 }

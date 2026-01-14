@@ -7,7 +7,7 @@ import {
   useImportSummaryMutation
 } from '@src/modules/dpr/redux/RTKQuery/DprImportRTK'
 import Show from '@src/utility/Show'
-import { FM, formatDate, isValid, isValidArray, log } from '@src/utility/Utils'
+import { FM, formatDate, isValid, isValidArray } from '@src/utility/Utils'
 import ApiEndpoints from '@src/utility/http/ApiEndpoints'
 import { loadDropdown } from '@src/utility/http/Apis/dropdown'
 import { stateReducer } from '@src/utility/stateReducer'
@@ -16,11 +16,11 @@ import { useEffect, useReducer, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ScrollBar from 'react-perfect-scrollbar'
 import { useNavigate } from 'react-router-dom'
-import { Button, Card, CardBody, CardHeader, Col, Form, Label, Row, Table } from 'reactstrap'
+import { Button, Card, CardBody, CardHeader, Col, Form, Row, Table } from 'reactstrap'
 
 import excel from '@src/assets/images/icons/excel.png'
-import classNames from 'classnames'
 import LoadingButton from '@src/modules/common/components/buttons/LoadingButton'
+import classNames from 'classnames'
 import { Download } from 'react-feather'
 
 interface States {

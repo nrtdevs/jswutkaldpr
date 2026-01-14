@@ -268,7 +268,7 @@ const DPRTable = () => {
                   label={FM('sheet-name')}
                   name={'sheet_name'}
                   type={'text'}
-                  defaultValue={'SUMMARY'}
+                  defaultValue={'Summary'}
                   className='mb-0'
                   control={control}
                   rules={{ required: false }}

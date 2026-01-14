@@ -31,9 +31,14 @@ const PermissionCreate = lazy(() => import('@src/modules/dpr/views/Role/CreatePe
 const LogList = lazy(() => import('@modules/dpr/views/Logs'))
 const AuditLogList = lazy(() => import('@modules/dpr/views/Logs/AuditLogs'))
 const ItemDescription = lazy(() => import('@modules/dpr/views/ItemDescription'))
+const Headers = lazy(() => import('@modules/dpr/views/Headers'))
 const ItemDescriptionAddUpdate = lazy(
   () => import('@modules/dpr/views/ItemDescription/ItemDescriptionForm')
 )
+const HeadersAddUpdate = lazy(
+  () => import('@modules/dpr/views/Headers/HeadersForm')
+)
+const Notification = lazy(() => import('@src/modules/dpr/views/notification'))
 
 const DprRoutes = [
   {
@@ -65,7 +70,7 @@ const DprRoutes = [
     element: <ReportEmail />,
     name: 'dpr.automation.report',
     meta: {
-      ...Permissions.reportBrowse
+      ...Permissions.emailTriggerBrowse
     }
   },
   {
@@ -73,7 +78,7 @@ const DprRoutes = [
     element: <SummaryReport />,
     name: 'summary.report',
     meta: {
-      ...Permissions.reportBrowse
+      ...Permissions.SummaryReportBrowse
     }
   },
   {
@@ -331,7 +336,39 @@ const DprRoutes = [
     meta: {
       ...Permissions.itemDescriptionEdit
     }
-  }
+  },
+    {
+    path: '/headers',
+    element: <Headers />,
+    name: 'dpr.headers',
+    meta: {
+      ...Permissions.itemDescriptionBrowse
+    }
+  },
+    {
+    path: '/headers-create',
+    element: <HeadersAddUpdate />,
+    name: 'dpr.headers.create',
+    meta: {
+      ...Permissions.itemDescriptionCreate
+    }
+  },
+  {
+    path: '/headers-update/:id',
+    element: <HeadersAddUpdate />,
+    name: 'dpr.headers.update',
+    meta: {
+      ...Permissions.itemDescriptionEdit
+    }
+  },
+     {
+    element: <Notification />,
+    path: '/notifications',
+    name: 'notification.list',
+    meta: {
+      ...Permissions.notificationsBrowse
+    }
+  },
 ] as const
 
 export type DprRouteName = (typeof DprRoutes)[number]['name']

@@ -126,5 +126,9 @@ export default {
     email_trigger: 'email-trigger',
 
     //dpr-import-bhel-list
-    dprImportBhelList:'dpr-import-bhel-list'
+    dprImportBhelList:'dpr-import-bhel-list',
+
+
+    headerList: 'sheet-headers',
+    headerAddUpdate: 'sheet-header'
 }
